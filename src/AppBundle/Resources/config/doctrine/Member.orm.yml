@@ -1,0 +1,49 @@
+AppBundle\Entity\Member:
+    type: entity
+    table: member
+    indexes:
+        memberType_idx:
+            columns:
+                - categorys
+    uniqueConstraints:
+        UNIQ_70E4FA78F85E0677:
+            columns:
+                - username
+        UNIQ_70E4FA78E7927C74:
+            columns:
+                - email
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+        categorys:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

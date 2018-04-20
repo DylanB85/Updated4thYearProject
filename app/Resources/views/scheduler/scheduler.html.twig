@@ -1,0 +1,54 @@
+{# default/scheduler.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel='stylesheet' type='text/css' href='{{ asset("libraries/dhtmlx/codebase/dhtmlxscheduler_flat.css") }}' />
+    <link rel="stylesheet" href="{{ asset('css/scheduler.css') }}"/>
+{% endblock %}
+
+{% block body -%}
+
+    <div id="scheduler_element" class="dhx_cal_container" style='width:100%; height:600px;'>
+        <div class="dhx_cal_navline">
+            <div class="dhx_cal_prev_button">&nbsp;</div>
+            <div class="dhx_cal_next_button">&nbsp;</div>
+            <div class="dhx_cal_today_button"></div>
+            <div class="dhx_cal_date"></div>
+            <div class="dhx_cal_tab"  style="right:204px;"></div>
+            <div class="dhx_cal_tab" style="right:140px;"></div>
+            <div class="dhx_cal_tab"  style="right:76px;"></div>
+        </div>
+        <div class="dhx_cal_header"></div>
+        <div class="dhx_cal_data"></div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Include the scheduler library -->
+    <script src='{{ asset("libraries/dhtmlx/codebase/dhtmlxscheduler.js") }}' type='text/javascript' charset="utf-8"></script>
+
+    <!-- Include jQuery to handle AJAX Requests -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Include Momentjs to play with the dates -->
+    <script src="{{ asset("libraries/momentjs/moment.js") }}"></script>
+
+    <script>
+
+        window.GLOBAL_APPOINTMENTS = {{ appointments|raw }};
+
+
+        window.GLOBAL_SCHEDULER_ROUTES = {
+            create: '{{ path("scheduler_create") }}',
+            update: '{{ path("scheduler_update") }}',
+            delete: '{{ path("scheduler_delete") }}'
+        };
+
+        window.GLOBAL_CATEGORIES = {{ categories|raw }};
+    </script>
+
+    <script src='{{ asset("libraries/calenderScripts.js") }}' type='text/javascript' charset="utf-8"></script>
+{% endblock %}

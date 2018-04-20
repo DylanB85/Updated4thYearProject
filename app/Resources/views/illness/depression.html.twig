@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/illnessPage.css') }}"/>
+    {% endblock %}
+
+{% block body %}
+    <div class="art">
+        <div class="container">
+            <h1>Mental Illness Care</h1>
+            <p>You have signed up to the app with your specified illness being Alzheimer's.</p>
+            <p>Try exploring our app!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="column1">
+                   <a class="mentalHealthCare" href="{{ path('depressioninformation') }}"> Mental Health Care & Exercises</a>
+                </div>
+                <img src="{{ asset('images/Happy.jpg') }}" alt="Happy Image" height="300" width="350">
+            </div>
+            <div class="col-sm">
+                <div class="column2">
+                    <a class="mentalHealthIreland" href="{{ path('mentalhealthireland') }}"> Mental Health Ireland</a>
+                </div>
+                <img src="{{ asset('images/MentalHealthIreland.jpg') }}" alt="Mental Health Ireland Logo" height="300" width="350">
+            </div>
+            <div class="col-sm">
+                <div class="column3">
+                    <a class="depressioninformation" href="{{ path('depressionuseful') }}"> Useful Numbers & Information</a>
+                </div>
+                <img src="{{ asset('images/RedPhone.png') }}" alt="Red Phone" height="300" width="350">
+            </div>
+        </div>
+    </div>
+{% endblock %}

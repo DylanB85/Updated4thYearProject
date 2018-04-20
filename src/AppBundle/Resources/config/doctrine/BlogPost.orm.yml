@@ -1,0 +1,65 @@
+AppBundle\Entity\BlogPost:
+    type: entity
+    table: blog_post
+    indexes:
+        blogForeignKey_idx:
+            columns:
+                - member_id
+    uniqueConstraints:
+        slug_UNIQUE:
+            columns:
+                - slug
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        slug:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 2000
+            options:
+                fixed: false
+        body:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    manyToOne:
+        member:
+            targetEntity: Member
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                member_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

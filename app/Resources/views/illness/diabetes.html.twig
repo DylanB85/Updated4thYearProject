@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/illnessPage.css') }}"/>
+    {% endblock %}
+
+{% block body %}
+    <div class="art">
+        <div class="container">
+            <h1>Diabetes Care</h1>
+            <p>You have signed up to the app with your specified illness being Alzheimer's.</p>
+            <p>Try exploring our app!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="column1">
+                    <a class="diabetesInformation" href="{{ path('diabetesinformation') }}">Diabetes Care & Exercises</a>
+                </div>
+                <img src="{{ asset('images/DiabetesWordCloud.png') }}" alt="Diabetes Word Cloud" height="300" width="350">
+            </div>
+            <div class="col-sm">
+                <div class="column2">
+                    <a class="diabetesIreland" href="{{ path('diabetesireland') }}">Diabetes Ireland</a>
+                </div>
+                <img src="{{ asset('images/DiabetesIreland.jpg') }}" alt="Diabetes Ireland Logo" height="300" width="350">
+            </div>
+        </div>
+    </div>
+{% endblock %}

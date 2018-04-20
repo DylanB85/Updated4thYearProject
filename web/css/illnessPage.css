@@ -1,0 +1,35 @@
+.container{
+    margin-top: 80px;
+}
+
+
+.mentalHealthIreland, .depressioninformation, .mentalHealthCare,
+.alzheimersCare, .alzheimerSociety, .usefulNumbers,
+.arthritisCare, .arthritisIreland,
+.lungCancerCare, .irishCancerSociety,
+.diabetesInformation, .diabetesIreland{
+    color: white;
+}
+
+.column1, .column2, .column3 {
+    border-top: thin solid black;
+    border-bottom: thin solid black;
+    border-right: thin solid black;
+    border-left: thin solid black;
+    color: white;
+    padding-top: 30px;
+    background: crimson;
+    height: 80px;
+}
+
+.row {
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}

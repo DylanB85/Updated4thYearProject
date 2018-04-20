@@ -1,0 +1,100 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    role_hierarchy:
+      ROLE_ADMIN: [ROLE_ADMIN]
+      ROLE_USER: [ROLE_USER]
+      ROLE_ARTHRITIS: [ROLE_ARTHRITIS]
+      ROLE_CANCER: [ROLE_CANCER]
+      ROLE_DEPRESSION: [ROLE_DEPRESSION]
+      ROLE_DIABETES: [ROLE_DIABETES]
+      ROLE_ALZHEIMER: [ROLE_ALZHEIMER]
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+        AppBundle\Entity\Member:
+            algorithm: bcrypt
+
+    providers:
+      chain_provider:
+        chain:
+          providers:
+            - in_memory
+            - db_provider
+      in_memory:
+            memory:
+                users:
+                    admin:
+                        password: $2y$13$sBG1nMvGxgY.AprC/tYl5ecuDvxT66bYNRrdX0zAyQCqQiUX./fqS
+                        roles: 'ROLE_ADMIN'
+
+      db_provider:
+        entity:
+          class: AppBundle:Member
+          property: username
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            provider: chain_provider
+            form_login:
+                login_path: login
+                failure_path: login
+                check_path: login
+                success_handler: crv.authentication.success_handlers
+                success_handler: crv.authentication.failure_handlers
+            logout: true
+
+            anonymous: ~
+
+            remember_me:
+              secret: '%secret%'
+              lifetime: 604800
+              path: /
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+
+
+    access_control:
+      - {path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY}
+      - {path: ^/(login|register)$, role: IS_AUTHENTICATED_ANONYMOUSLY}
+      - {path: ^/registration-form-submission$, role: IS_AUTHENTICATED_ANONYMOUSLY}
+      - {path: ^/recover$, role: IS_AUTHENTICATED_ANONYMOUSLY}
+      - {path: ^/reset/confirm$, role: IS_AUTHENTICATED_ANONYMOUSLY}
+      - {path: ^/reset/request$, role: IS_AUTHENTICATED_ANONYMOUSLY}
+      - {path: ^/arthritis$, role: ROLE_ARTHRITIS}
+      - {path: ^/arthritis/arthritisinformation$, role: ROLE_ARTHRITIS}
+      - {path: ^/arthritis/arthritisireland$, role: ROLE_ARTHRITIS}
+      - {path: ^/arthritis/arthritisusefulinformation$, role: ROLE_ARTHRITIS}
+      - {path: ^/cancer$, role: ROLE_CANCER}
+      - {path: ^/cancer/cancerinformation$, role: ROLE_CANCER}
+      - {path: ^/cancer/cancersocietyinfo$, role: ROLE_CANCER}
+      - {path: ^/cancer/cancerusefulinformation$, role: ROLE_CANCER}
+      - {path: ^/diabetes$, role: ROLE_DIABETES}
+      - {path: ^/diabetes/diabetesinformation$, role: ROLE_DIABETES}
+      - {path: ^/diabetes/diabetesireland$, role: ROLE_DIABETES}
+      - {path: ^/diabetes/diabetesusefulinformation$, role: ROLE_DIABETES}
+      - {path: ^/depression$, role: ROLE_DEPRESSION}
+      - {path: ^/depression/depressioninformation$, role: ROLE_DEPRESSION}
+      - {path: ^/depression/mentalhealthireland$, role: ROLE_DEPRESSION}
+      - {path: ^/depression/depressionusefulinformation$, role: ROLE_DEPRESSION}
+      - {path: ^/alzheimers$, role: ROLE_ALZHEIMER}
+      - {path: ^/alzheimers/alzheimersinformation$, role: ROLE_ALZHEIMER}
+      - {path: ^/alzheimers/alzheimerssociety$, role: ROLE_ALZHEIMER}
+      - {path: ^/alzheimers/alzheimersusefulinformation$, role: ROLE_ALZHEIMER}
+      - {path: ^/signin$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
+      - {path: ^/scheduler$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
+      - {path: ^/entries$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
+      - {path: ^/create-entry$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}

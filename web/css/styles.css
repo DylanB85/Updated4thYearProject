@@ -1,0 +1,28 @@
+.container {
+    margin-top: 40px;
+}
+
+.reg{
+    padding-top: 100px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em
+}
+
+.form-signin{
+    padding-top: 100px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.signup{
+    padding-top: 10px;
+    margin-left: 125px;
+}
+
+.art{
+    padding-top: 100px;
+    text-align: center;
+}
+

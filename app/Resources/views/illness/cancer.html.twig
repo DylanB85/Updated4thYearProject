@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/illnessPage.css') }}"/>
+    {% endblock %}
+
+{% block body %}
+    <div class="art">
+        <div class="container">
+            <h1>Lung Cancer Care</h1>
+            <p>You have signed up to the app with your specified illness being Alzheimer's.</p>
+            <p>Try exploring our app!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="column1">
+                    <a class="lungCancerCare" href="{{ path('cancerinformation') }}">Lung Cancer Care & Exercises</a>
+                </div>
+                <img src="{{ asset('images/Lungs.webp') }}" alt="Lungs" height="300" width="350">
+            </div>
+            <div class="col-sm">
+                <div class="column2">
+                    <a class="irishCancerSociety" href="{{ path('cancersociety') }}">Irish Cancer Society</a>
+                </div>
+                <img src="{{ asset('images/IrishCancerSociety.jpg') }}" alt="Irish Cancer Society Logo" height="300" width="350">
+            </div>
+        </div>
+    </div>
+{% endblock %}

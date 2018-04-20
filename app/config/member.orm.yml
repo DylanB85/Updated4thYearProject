@@ -1,0 +1,7 @@
+AppBundle\Entity\Member:
+    type: entity
+    # ...
+    oneToMany:
+        products:
+            targetEntity: AppBundle\Entity\Category
+            mappedBy: member

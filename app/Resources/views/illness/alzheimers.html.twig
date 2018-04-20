@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/illnessPage.css') }}"/>
+    {% endblock %}
+
+{% block body %}
+    <div class="art">
+        <div class="container">
+            <h1>Alzheimer's Care</h1>
+            <p>You have signed up to the app with your specified illness being Alzheimer's.</p>
+            <p>Try exploring our app!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="column1">
+                    <a class="alzheimersCare" href="{{ path('alzheimersinformation') }}"> Alzheimer's Care & Exercises</a>
+                </div>
+                <img src="{{ asset('images/AlzheimersWordCloud.jpg') }}" alt="Alzheimers Word Cloud" height="300" width="350">
+            </div>
+            <div class="col-sm">
+                <div class="column2">
+                    <a class="alzheimerSociety" href="{{ path('alzheimerssociety') }}"> The Alzheimer Society of Ireland</a>
+                </div>
+                <img src="{{ asset('images/AlzheimersSociety.jpg') }}" alt="Alzheimer's Society of Ireland Logo" height="300" width="350">
+            </div>
+        </div>
+    </div>
+{% endblock %}

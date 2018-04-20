@@ -1,0 +1,15 @@
+.error-template {
+    text-align: center;
+    }
+
+.error-actions .btn {
+    margin-right:10px;
+    }
+
+.stopImage {
+    display: block;
+    margin-left: 37%;
+    margin-right: 50%;
+    width: 40%;
+    margin-top: 100px;
+}
