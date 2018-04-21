@@ -1,0 +1,20 @@
+.fb-page{
+    padding-top: 50px;
+    float: right;
+    padding-right: 200px;
+}
+
+.twitter-page{
+    padding-top: 50px;
+    float: left;
+}
+
+h1{
+    padding-top: 50px;
+}
+
+h3{
+    text-align: center;
+    padding-top: 100px;
+    border-bottom: solid crimson 2px;
+}

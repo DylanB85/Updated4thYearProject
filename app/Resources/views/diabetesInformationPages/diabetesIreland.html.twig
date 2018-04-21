@@ -2,7 +2,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/depressionPage.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/societyPages.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
 {% endblock %}
 
 {% block javascripts %}
@@ -17,17 +18,37 @@
 {% endblock %}
 
 {% block body %}
-    <div class="fb-page" data-href="https://www.facebook.com/DiabetesIreland/" data-tabs="timeline" data-width="350" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/DiabetesIreland/" class="fb-xfbml-parse-ignore">
-            <a href="https://www.facebook.com/DiabetesIreland/">Diabetes Ireland
-            </a>
-        </blockquote>
+
+    <div class="SocietyInformation">
+        <h1>Diabetes Ireland</h1>
+        <h4>The following page contains information regarding Diabetes Ireland</h4>
+        <p>Website: <a href="https://www.diabetes.ie/" target="_blank">www.diabetes.ie</a></p>
+        <p>Help Line: 1 800 341 341<br>(Available Monday-Friday - 10am to 5pm and Saturday 10am 4pm):</p>
     </div>
 
-    <div class="twitter-page">
-        <a class="twitter-timeline" data-width="350" data-height="600" href="https://twitter.com/Diabetes_ie?ref_src=twsrc%5Etfw">Tweets by Diabetes_ie
-        </a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-        </script>
+    <div class="container">
+        <h3>Social Media Feeds for Diabetes Ireland</h3>
+        <div class="col-sm">
+            <div class="column1">
+                <div class="fb-page" data-href="https://www.facebook.com/DiabetesIreland/" data-tabs="timeline" data-width="350" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/DiabetesIreland/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/DiabetesIreland/">Diabetes Ireland
+                        </a>
+                    </blockquote>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <div class="column2">
+                <div class="twitter-page">
+                    <a class="twitter-timeline" data-width="350" data-height="600" href="https://twitter.com/Diabetes_ie?ref_src=twsrc%5Etfw">Tweets by Diabetes_ie
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+                    </script>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
