@@ -12,9 +12,9 @@ scheduler.config.resize_month_events = true;
 
 scheduler.config.lightbox.sections = [
     {name:"Title", height:30, map_to:"text", type:"textarea"},
-    {name:"Description", height:30, map_to:"description", type:"textarea"},
-    {name: "Category", options: window.GLOBAL_CATEGORIES, map_to: "category", type: "select", height:30},
-    {name:"time", height:72, type:"time", map_to:"auto"}
+    {name:"Description", height:50, map_to:"description", type:"textarea"},
+    {name: "Type of Reminder", options: window.GLOBAL_CATEGORIES, height:40, map_to: "category", type: "select"},
+    {name:"Time", height:30, type:"time", map_to:"auto"}
 ];
 
 
@@ -31,15 +31,14 @@ scheduler.parse(window.GLOBAL_APPOINTMENTS, "json");
 
 //Function that formats the events to the expected format in the server side
 
-/**
- * Returns an Object with the desired structure of the server.
+/*
  * @param {*} id
  * @param {*} useJavascriptDate
  */
-function getFormatedEvent(id, useJavascriptDate){
+function getExpectedFormat(id, useJavascriptDate){
     var event;
 
-    // If id is already an event object, use it and don't search for it
+    // If the ID already exists on an event don't search for it and use it
     if(typeof(id) == "object"){
         event = id;
     }else{
@@ -47,7 +46,7 @@ function getFormatedEvent(id, useJavascriptDate){
     }
 
     if(!event){
-        console.error("The ID of the event doesn't exist: " + id);
+        console.error("This ID does not exist " + id);
         return false;
     }
 
@@ -72,39 +71,37 @@ function getFormatedEvent(id, useJavascriptDate){
 }
 
 /**
- * Handle the CREATE scheduler event
+ * Calendar Create Event
  */
 scheduler.attachEvent("onEventAdded", function(id,ev){
     var schedulerState = scheduler.getState();
 
     $.ajax({
         url:  window.GLOBAL_SCHEDULER_ROUTES.create,
-        data: getFormatedEvent(ev),
+        data: getExpectedFormat(ev),
         dataType: "json",
         type: "POST",
         success: function(response){
-            // Very important:
-            // Update the ID of the scheduler appointment with the ID of the database
-            // so we can edit the same appointment now !
+
 
             scheduler.changeEventId(ev.id , response.id);
 
             alert('Appointment '+ev.text+ " has been created! Good Luck!");
         },
         error:function(error){
-            alert('Error: The following appointment '+ev.text+ 'please report to an admin');
+            alert('Error: The following appointment '+ev.text+ 'refresh and try again or report to an admin');
             console.log(error);
         }
     });
 });
 
 /**
- * Handle the UPDATE event of the scheduler
+ * Calendar Update Event
  */
 scheduler.attachEvent("onEventChanged", function(id,ev){
     $.ajax({
         url:  window.GLOBAL_SCHEDULER_ROUTES.update,
-        data: getFormatedEvent(ev),
+        data: getExpectedFormat(ev),
         dataType: "json",
         type: "POST",
         success: function(response){
@@ -112,9 +109,9 @@ scheduler.attachEvent("onEventChanged", function(id,ev){
                 alert("Appointment Updated!");
             }
         },
-        error: function(err){
-            alert("Error: Cannot save changes, try again or report to Admin");
-            console.error(err);
+        error: function(error){
+            alert("Error: Cannot save changes, refresh and try again or report to Admin");
+            console.error(error);
         }
     });
 
@@ -122,7 +119,7 @@ scheduler.attachEvent("onEventChanged", function(id,ev){
 });
 
 /**
- * Handle the DELETE appointment event
+ * Calendar Delete Event
  */
 scheduler.attachEvent("onConfirmedBeforeEventDelete",function(id,ev){
     $.ajax({
@@ -138,14 +135,13 @@ scheduler.attachEvent("onConfirmedBeforeEventDelete",function(id,ev){
                     alert("Appointment succesfully deleted");
                 }
             }else if(response.status == "error"){
-                alert("Error: Cannot delete appointment");
+                alert("Error: Cannot delete appointment refresh and try again or report to an Admin");
             }
         },
         error:function(error){
-            alert("Error: Cannot delete appointment: " + ev.text);
+            alert("Error: Cannot delete appointment: " + ev.text + "refresh and try again or report to an Admin");
             console.log(error);
         }
     });
-
     return true;
 });

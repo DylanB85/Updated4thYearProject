@@ -96,5 +96,5 @@ security:
       - {path: ^/alzheimers/alzheimersusefulinformation$, role: ROLE_ALZHEIMER}
       - {path: ^/signin$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
       - {path: ^/scheduler$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
-      - {path: ^/entries$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
-      - {path: ^/create-entry$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
+      - {path: ^/blogs$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}
+      - {path: ^/blogs/create-entry$, role: [ROLE_ARTHRITIS, ROLE_CANCER, ROLE_DEPRESSION, ROLE_DIABETES, ROLE_ALZHEIMER]}

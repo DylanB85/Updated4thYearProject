@@ -28,8 +28,6 @@ class SchedulerController extends Controller
 
         $repositoryCategories = $em->getRepository("AppBundle:Categories");
 
-        $repositoryMember = $em->getRepository("AppBundle:Member");
-
         $appointments = $repositoryAppointments->findAll();
 
         $formatedAppointments = $this->formatAppointmentsToJson($appointments);

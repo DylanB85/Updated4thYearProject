@@ -2,6 +2,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/exercises.css') }}"/>
 {% endblock %}
 
 {% block javascripts %}
@@ -9,7 +11,16 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Alzheimer's disease Exercises</h1>
-    <p>Alzheimer's disease is a chronic neurodegenerative disease which effects over 40,000 people in Ireland alone.</p>
+    <div class="illnessInfo">
+        <h1>Alzheimer's Disease Exercises</h1>
+        <p class="p1">Alzheimer's disease is a chronic neurodegenerative disease which effects over 40,000 people in Ireland alone.</p>
+        <h4 class="question">Can Exercise Benefit Alzheimer Sufferers?</h4>
+        <p class="p2" style="font-weight: bold"></p>
+        <p class="p3" style="font-weight: bold"></p>
+        <h4 class="thingsToDo">What Can You Do?</h4>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
 
 {% endblock %}

@@ -1,0 +1,20 @@
+.illnessInfo{
+    padding-top: 80px;
+    padding-left: 20px;
+}
+
+.p2, .p3{
+    margin-left: 375px;
+    text-align: center;
+    width: 50%;
+}
+
+h4.question{
+    text-align: center;
+}
+
+h4.thingsToDo{
+    padding-top: 30px;
+    border-top: solid crimson 2px;
+}
+

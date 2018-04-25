@@ -1,1 +1,28 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/exercises.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="illnessInfo">
+        <h1>Mental Health Exercises</h1>
+        <p class="p1">Mental Illness is a serious issue in the country of Ireland, with over 300,000 people in Ireland suffering from it according to a survey by Aware. People
+            who suffer with depression may feel unhappy, unmotivated and extreme sadness. People suffering from depression can go days, weeks and even months
+            feeling these symptoms.</p>
+        <h4 class="question">Is it better to deal with depression alone?</h4>
+        <p class="p2" style="font-weight: bold"></p>
+        <p class="p3" style="font-weight: bold"></p>
+        <h4 class="thingsToDo">What can you do?</h4>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+{% endblock %}

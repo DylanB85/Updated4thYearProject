@@ -40,14 +40,12 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/entries", name="entries")
+     * @Route("/blogs", name="blogs")
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function entriesAction(Request $request)
+    public function blogAction(Request $request)
     {
-
-        $page = 1;
 
         if($request->get('page')){
             $page = $request->get('page');
@@ -67,13 +65,13 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/create-entry", name="create_entry")
+     * @Route("/blogs/create-entry", name="create_entry")
      *
      * @param Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function createEntryAction(Request $request)
+    public function createBlogEntryAction(Request $request)
     {
         $blogPost = new BlogPost();
 
@@ -87,9 +85,9 @@ class BlogController extends Controller
             $this->entityManager->persist($blogPost);
             $this->entityManager->flush($blogPost);
 
-            $this->addFlash('success', 'Congratulations! Your post is created');
+            $this->addFlash('success', 'Congratulations! You have created a new post!');
 
-            return $this->redirectToRoute('entries');
+            return $this->redirectToRoute('blogs');
         }
 
         return $this->render('blog/entryForm.html.twig',[
@@ -104,7 +102,7 @@ class BlogController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deleteEntryAction($entryId)
+    public function deleteBlogEntryAction($entryId)
     {
         $blogPost = $this->blogPostRepository->findOneById($entryId);
         $member = $this->memberRepository->findOneByUsername($this->getUser()->getUserName());
@@ -124,33 +122,16 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/member/{username}", name="member")
+     * @Route("/blogs/userentry/{slug}", name="userentry")
      */
-    public function memberAction($name)
-    {
-        $member = $this->memberRepository->findOneByUsername($name);
-
-        if(!$member){
-            $this->addFlash('error', 'Unable to find Member');
-            return $this->redirectToRoute('entries');
-        }
-
-        return $this->render('blog/BlogPosts.html.twig',[
-            'member'=> $member
-        ]);
-    }
-
-    /**
-     * @Route("/userentry/{slug}", name="userentry")
-     */
-    public function entryAction($slug)
+    public function slugAction($slug)
     {
         $blogPost = $this->blogPostRepository->findOneBySlug($slug);
 
         if(!$blogPost){
             $this->addFlash('error', 'Unable to find entry');
 
-            return $this->redirectToRoute('entries');
+            return $this->redirectToRoute('blogs');
         }
         return $this->render('blog/entry.html.twig', array(
             'blogPost' => $blogPost

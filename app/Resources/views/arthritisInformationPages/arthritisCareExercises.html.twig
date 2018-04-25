@@ -1,1 +1,26 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/exercises.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="">
+        <h1>Arthritis Exercises</h1>
+        <p class="p1">Arthritis is a condition which effects over 44,000 people in Ireland. It is a condition in which the person joints become inflamed and can have very
+            painful consequences.</p>
+        <h4 class="question">Can Exercise Improve Arthritis Pain?</h4>
+        <p class="p2" style="font-weight: bold"></p>
+        <p class="p3"></p>
+        <h4>What Can You Do?</h4>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+{% endblock %}

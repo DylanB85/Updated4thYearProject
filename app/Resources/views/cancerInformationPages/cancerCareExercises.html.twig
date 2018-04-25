@@ -1,1 +1,30 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/exercises.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="illnessInfo">
+        <h1>Lung Cancer Exercises</h1>
+        <p class="p1">Lung Cancer is one of the most prevalent types of cancer in Ireland, with over 23,000 men and women affected with the disease.</p>
+        <h4 class="question">Can Exercise Improve Lung Cancer Deterioration?</h4>
+        <p class="p2" style="font-weight: bold">A study was carried out in may 2009 by a group of professionals and medical experts called
+            "A structured Exercise Program for patients with Advanced Non-small Cell Lung Cancer". This
+            study can be accessed <a href="https://ac.els-cdn.com/S1556086415316762/1-s2.0-S1556086415316762-main.pdf?_tid=e5771047-cfe5-4041-929c-6459f18d66b1&acdnat=1524619963_e882a70b096cee46eaa5f633ae6042a5" target="_blank">here</a></p>
+        <p class="p3" style="font-weight: bold">In this study 25 patients who were diagnosed with lung cancer took part in an exercise program. Of the 25 people
+            that took part 44% could finish the exercise program due to progression of the illness, the 44% that finished this program showed
+            a significant reduction in lung cancer symptoms</p>
+        <h4 class="thingsToDo">What Can You Do?</h4>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+{% endblock %}

@@ -29,7 +29,7 @@ class MemberType extends AbstractType
                             'Arthritis' => 'ARTHRITIS',
                             'Lung Cancer' => 'CANCER',
                             'Depression' => 'DEPRESSION',
-                            'Diabetes' => 'DIABETES',
+                            'Type 1 Diabetes' => 'DIABETES',
                                     )
                         ))
             ->add('plainPassword', RepeatedType::class,[

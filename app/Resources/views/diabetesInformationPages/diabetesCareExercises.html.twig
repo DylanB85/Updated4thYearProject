@@ -1,1 +1,28 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/exercises.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="illnessInfo">
+        <h1>Diabetes Care & Treatment</h1>
+        <p class="p1">Type I diabetes is a disease which tends to occur in childhood or early adult life. In this particular type of diabetes the body does not produce enough insulin
+            and this leads to high blood sugar levels. There are approximately 14-16,000 people in Ireland who suffer with Type I Diabetes, with 2,750 of them being under
+            the age of 16.</p>
+        <h4 class="question">Reducing Cardiovascular Disease in Type 1 Diabetes</h4>
+        <p class="p2" style="font-weight: bold"></p>
+        <p class="p3" style="font-weight: bold"></p>
+        <h4 class="thingsToDo">What can you do?</h4>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+{% endblock %}
